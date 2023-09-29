@@ -69,17 +69,20 @@ namespace PierresOrderTracker.Tests
       Assert.AreEqual(testDate, expectedDate);
     }
 
+    [TestMethod]
+    public void GetAllOrders_ReturnOrders_OrderList()
+    {
+      // Arrange
+      string title1 = "Cool Title";
+      string title2 = "Another Title but Cooler";
+      Order newOrder1 = new Order(title1, "description1", 12, "Sept 30");
+      Order newOrder2 = new Order(title2, "description2", 14, "Sept 28");
+      List<Order> newList = new List<Order> { newOrder1, newOrder2 };
+      //Act 
+      List<Order> expectedList = Order.GetAllOrders();
+      //Assert
+      CollectionAssert.AreEqual(newList, expectedList);
 
-    // [TestMethod]
-    // public void SetDescription_SetNewDescription_String()
-    // {
-    //   // Arrange
-    //   string expectedDescription = "Some description probably";
-    //   Order newOrder = new Order("Title", expectedDescription, 500, "Sept 29");
-    //   //Act 
-    //   string testDescription = newOrder.Description;
-    //   //Assert
-    //   Assert.AreEqual(testDescription, expectedDescription);
-    // }
+    }
   }
 }
