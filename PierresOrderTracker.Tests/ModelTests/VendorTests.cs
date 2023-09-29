@@ -33,5 +33,17 @@ namespace PierresOrderTracker.Tests
       Assert.AreEqual(testName, expectedName);
     }
 
+    [TestMethod]
+    public void GetVendorId_ReturnsIdOfVendor_Int()
+    {
+      // Arrange
+      int expectedId = 1;
+      string name = "Not a fake vendor";
+      Vendor newVendor = new Vendor(name);
+      //Act 
+      int testId = newVendor.Id;
+      //Assert
+      Assert.AreEqual(testId, expectedId);
+    }
   }
-} 
+}
