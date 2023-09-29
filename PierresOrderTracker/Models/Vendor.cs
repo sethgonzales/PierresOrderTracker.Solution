@@ -21,5 +21,15 @@ namespace PierresOrderTracker.Models
     {
       _instances.Clear();
     }
+
+  public static List<Vendor> GetAll()
+  {
+    return _instances;
+  }
+
+  public static Vendor Find(int idToFind)
+  {
+    return _instances[idToFind - 1];
+  }
   }
 }
