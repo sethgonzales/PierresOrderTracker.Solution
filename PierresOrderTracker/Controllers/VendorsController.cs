@@ -14,10 +14,34 @@ namespace PierresOrderTracker.Controllers
       return View(vendorList);
     }
 
-  [HttpGet("/vendors/new")]
+    [HttpGet("/vendors/new")]
     public ActionResult New()
     {
       return View();
+    }
+
+    [HttpGet("/vendors{id}")]
+    public ActionResult Show(int id)
+    {
+      Dictionary<string, object> model = new Dictionary<string, object>();
+      Vendor vendorToView = Vendor.Find(id);
+      List<Order> vendorOrder = vendorToView.Order;
+      model.Add("vendor", vendorToView);
+      model.Add("order", vendorOrder);
+      return View(model);
+    }
+
+    [HttpPost("/vendors/{vendorId}/order")]
+    public ActionResult Create(int vendorId, string orderTitle, string orderDescription, int orderPrice, string orderDate)
+    {
+      Dictionary<string, object> model = new Dictionary<string, object>();
+      Vendor foundVendor = Vendor.Find(vendorId);
+      Order newOrder = new Order(orderTitle, orderDescription, orderPrice, orderDate);
+      foundVendor.AddOrder(newOrder);
+      List<Order> categoryOrders = foundVendor.Order;
+      model.Add("order", categoryOrders);
+      model.Add("vendor", foundVendor);
+      return View("Show", model);
     }
   }
 

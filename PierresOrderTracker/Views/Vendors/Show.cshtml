@@ -1,0 +1,21 @@
+@{
+  Layout = "_Layout";
+}
+
+@using PierresOrderTracker.Models;
+
+<h3>Here are the orders from @Model.Vendor:</h3>
+
+<ol>
+@foreach (Order order in @Model["order"])
+{
+  <li><a href='/vendors/@Model["vendor"].Id/order/@order.Id'>@order.Title</a></li>
+    <li>@order.Description</li>
+    <li>@order.Price</li>
+    <li>@order.Date</li>
+}
+</ol>
+
+<p><a href='/categories/@Model["category"].Id/items/new'>Add a new item</a></p>
+<p><a href='/categories'>Return to category list</a></p>
+<p><a href='/'>Return to Main Page</a></p>
