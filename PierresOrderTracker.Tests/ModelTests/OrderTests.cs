@@ -26,7 +26,7 @@ namespace PierresOrderTracker.Tests
     {
       // Arrange
       string expectedTitle = "Order Title";
-      Order newOrder = new Order("Order Title", "description", 500, "Sept 29");
+      Order newOrder = new Order(expectedTitle, "description", 500, "Sept 29");
       //Act 
       string testTitle = newOrder.Title;
       //Assert
@@ -38,7 +38,7 @@ namespace PierresOrderTracker.Tests
     {
       // Arrange
       string expectedDescription = "Some description probably";
-      Order newOrder = new Order("Title", "Some description probably", 500, "Sept 29");
+      Order newOrder = new Order("Title", expectedDescription, 500, "Sept 29");
       //Act 
       string testDescription = newOrder.Description;
       //Assert
@@ -50,7 +50,7 @@ namespace PierresOrderTracker.Tests
     {
       // Arrange
       int expectedPrice = 5000;
-      Order newOrder = new Order("Title", "description", 5000, "Sept 29");
+      Order newOrder = new Order("Title", "description", expectedPrice, "Sept 29");
       //Act 
       int testPrice = newOrder.Price;
       //Assert
@@ -62,11 +62,24 @@ namespace PierresOrderTracker.Tests
     {
       // Arrange
       string expectedDate = "10/01/2023";
-      Order newOrder = new Order("Title", "description", 500, "10/01/2023");
+      Order newOrder = new Order("Title", "description", 500, expectedDate);
       //Act 
       string testDate = newOrder.Date;
       //Assert
       Assert.AreEqual(testDate, expectedDate);
     }
+
+
+    // [TestMethod]
+    // public void SetDescription_SetNewDescription_String()
+    // {
+    //   // Arrange
+    //   string expectedDescription = "Some description probably";
+    //   Order newOrder = new Order("Title", expectedDescription, 500, "Sept 29");
+    //   //Act 
+    //   string testDescription = newOrder.Description;
+    //   //Assert
+    //   Assert.AreEqual(testDescription, expectedDescription);
+    // }
   }
 }
