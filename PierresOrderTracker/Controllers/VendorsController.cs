@@ -33,9 +33,9 @@ namespace PierresOrderTracker.Controllers
     {
       Dictionary<string, object> model = new Dictionary<string, object>();
       Vendor vendorToView = Vendor.Find(id);
-      List<Order> vendorOrder = vendorToView.Order;
+      List<Order> vendorOrder = vendorToView.Orders;
       model.Add("vendor", vendorToView);
-      model.Add("order", vendorOrder);
+      model.Add("orders", vendorOrder);
       return View(model);
     }
 
@@ -47,8 +47,8 @@ namespace PierresOrderTracker.Controllers
       Vendor foundVendor = Vendor.Find(vendorId);
       Order newOrder = new Order(orderTitle, orderDescription, orderPrice, orderDate);
       foundVendor.AddOrder(newOrder);
-      List<Order> categoryOrders = foundVendor.Order;
-      model.Add("order", categoryOrders);
+      List<Order> vendorOrders = foundVendor.Orders;
+      model.Add("orders", vendorOrders);
       model.Add("vendor", foundVendor);
       return View("Show", model);
     }
