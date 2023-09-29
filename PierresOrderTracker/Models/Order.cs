@@ -4,7 +4,6 @@ using Microsoft.VisualBasic;
 
 namespace PierresOrderTracker.Models
 {
-
   public class Order
   {
     public string Title { get; set; }
@@ -13,7 +12,6 @@ namespace PierresOrderTracker.Models
     public int Price { get; set; }
     public string Date { get; set; }
     private static List<Order> _instances = new List<Order> { };
-
 
     public Order(string title, string description, int price, string date)
     {
