@@ -56,5 +56,17 @@ namespace PierresOrderTracker.Tests
       //Assert
       Assert.AreEqual(testPrice, expectedPrice);
     }
+
+    [TestMethod]
+    public void GetOrderDate_ReturnsDateOfOrder_String()
+    {
+      // Arrange
+      string expectedDate = "10/01/2023";
+      Order newOrder = new Order("Title", "description", 500, "10/01/2023");
+      //Act 
+      string testDate = newOrder.Date;
+      //Assert
+      Assert.AreEqual(testDate, expectedDate);
+    }
   }
 }
