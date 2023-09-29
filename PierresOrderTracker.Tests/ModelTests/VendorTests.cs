@@ -45,5 +45,19 @@ namespace PierresOrderTracker.Tests
       //Assert
       Assert.AreEqual(testId, expectedId);
     }
+    [TestMethod]
+    public void GetAllVendors_ReturnsAllInstancesOfVendors_VendorList()
+    {
+      // Arrange
+      string name1 = "Not a fake vendor";
+      string name2 = "Very sus vendor";
+      Vendor newVendor1 = new Vendor(name1);
+      Vendor newVendor2 = new Vendor(name2);
+      List<Vendor> newList = new List<Vendor> { newVendor1, newVendor2 };
+      //Act 
+      List<Vendor> expectedList = Vendor.GetAll();
+      //Assert
+      CollectionAssert.AreEqual(newList, expectedList);
+    }
   }
 }
