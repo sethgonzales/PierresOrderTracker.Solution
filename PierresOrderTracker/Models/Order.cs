@@ -32,5 +32,10 @@ namespace PierresOrderTracker.Models
     {
       return _instances;
     }
+
+    public static Order Find(int orderId)
+    {
+      return _instances[orderId - 1];
+    }
   }
 }

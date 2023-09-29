@@ -20,6 +20,14 @@ namespace PierresOrderTracker.Controllers
       return View();
     }
 
+    //for adding new vendors
+    [HttpPost("/vendors")]
+    public ActionResult Create(string vendorName)
+    {
+      Vendor newVendor = new Vendor(vendorName);
+      return RedirectToAction("Index");
+    }
+
     [HttpGet("/vendors{id}")]
     public ActionResult Show(int id)
     {
@@ -31,7 +39,8 @@ namespace PierresOrderTracker.Controllers
       return View(model);
     }
 
-    [HttpPost("/vendors/{vendorId}/order")]
+    //for adding new orders to a vendor
+    [HttpPost("/vendors/{vendorId}/orders")]
     public ActionResult Create(int vendorId, string orderTitle, string orderDescription, int orderPrice, string orderDate)
     {
       Dictionary<string, object> model = new Dictionary<string, object>();
