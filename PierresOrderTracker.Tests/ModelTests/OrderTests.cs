@@ -44,5 +44,17 @@ namespace PierresOrderTracker.Tests
       //Assert
       Assert.AreEqual(testDescription, expectedDescription);
     }
+
+    [TestMethod]
+    public void GetOrderPrice_ReturnsPriceOfOrder_Int()
+    {
+      // Arrange
+      int expectedPrice = 5000;
+      Order newOrder = new Order("Title", "description", 5000, "Sept 29");
+      //Act 
+      int testPrice = newOrder.Price;
+      //Assert
+      Assert.AreEqual(testPrice, expectedPrice);
+    }
   }
 }
