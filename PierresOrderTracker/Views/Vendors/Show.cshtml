@@ -4,15 +4,23 @@
 
 @using PierresOrderTracker.Models;
 
-<h3>Here are the orders from @Model["vendor"].VendorName:</h3>
+<h1>@Model["vendor"].VendorName's Orders</h1><br>
 
-<ol>
-@foreach (Order order in @Model["orders"])
+@if (@Model["orders"].Count == 0)
 {
-  <li><a href='/vendors/@Model["vendor"].Id/orders/@order.Id'>@order.Title</a></li>
+  <p><em>No orders have been placed by @Model["vendor"].VendorName.</em></p><br>
 }
-</ol>
 
-<p><a href='/vendors/@Model["vendor"].Id/orders/new'>Add a New Order</a></p>
-<p><a href='/vendors'>Return to Vendors List</a></p>
-<p><a href='/'>Return to Home</a></p>
+<ul class="lists">
+  @foreach (Order order in @Model["orders"])
+  {
+    <li>
+      <h4><a href='/vendors/@Model["vendor"].Id/orders/@order.Id'>@order.Title</a></h4>
+    </li>
+  }
+</ul>
+
+<div class="navlinks">
+  <p><a href='/vendors/@Model["vendor"].Id/orders/new'>New Order</a></p>
+  <p><a href='/vendors'>View Vendors</a></p>
+</div>
