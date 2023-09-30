@@ -41,7 +41,7 @@ namespace PierresOrderTracker.Controllers
 
     //for adding new orders to a vendor
     [HttpPost("/vendors/{vendorId}/orders")]
-    public ActionResult Create(int vendorId, string orderTitle, string orderDescription, int orderPrice, string orderDate)
+    public ActionResult Create(int vendorId, string orderTitle, string orderDescription, decimal orderPrice, string orderDate)
     {
       Dictionary<string, object> model = new Dictionary<string, object>();
       Vendor foundVendor = Vendor.Find(vendorId);
