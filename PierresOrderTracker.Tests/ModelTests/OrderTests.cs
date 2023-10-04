@@ -46,13 +46,13 @@ namespace PierresOrderTracker.Tests
     }
 
     [TestMethod]
-    public void GetOrderPrice_ReturnsPriceOfOrder_Int()
+    public void GetOrderPrice_ReturnsPriceOfOrder_Decimal()
     {
       // Arrange
-      int expectedPrice = 5000;
+      decimal expectedPrice = 5000;
       Order newOrder = new Order("Title", "description", expectedPrice, "Sept 29");
       //Act 
-      int testPrice = newOrder.Price;
+      decimal testPrice = newOrder.Price;
       //Assert
       Assert.AreEqual(testPrice, expectedPrice);
     }
